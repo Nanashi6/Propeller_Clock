@@ -1,0 +1,11 @@
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.csproj.AssemblyReference.cache
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.csproj.SuggestedBindingRedirects.cache
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.Properties.Resources.resources
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.csproj.GenerateResource.cache
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.csproj.CoreCompileInputs.cache
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\bin\Debug\ArduinoUI.exe.config
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\bin\Debug\ArduinoUI.exe
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\bin\Debug\ArduinoUI.pdb
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.exe
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.pdb
+E:\2 Курс\!!!ArduinoBackend!!!\ArduinoUI\obj\Debug\ArduinoUI.MainForm.resources
