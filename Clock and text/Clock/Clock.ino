@@ -4,10 +4,8 @@ int hallVal = HIGH;                   // Исходное значение сч�
 
 int i, j;
 
-int secArrow[] = {0,1,1,1,1,1,1,1};
+int minSecArrow[] = {0,0,1,1,1,1,1,1};
 int secIndex = 2;
-
-int minArrow[] = {0,0,1,1,1,1,1,1};
 int minIndex = 45;
 
 int hourArrow[] = {0,0,0,0,1,1,1,1};
@@ -100,14 +98,6 @@ void setup()
 
 void loop() 
 {
-  pause = elapsedTime / 120;
-  hallVal = digitalRead(hallPin);
-  //Serial.println(hallVal);
-  /*
-  if(hallVal == LOW){
-    countRevolutions();
-  }
-  */
   drawClock();
   /*
   if (elapsedTime >= 1000) { //Подсчет rmp раз в секунду, МБ понадобится
@@ -122,17 +112,26 @@ void loop()
 
 void countRevolutions() {
   //revolutions++;  
-  //Serial.println("hjjvbhj");
   currentTime = millis();
   elapsedTime += currentTime - lastTime;
+  //pause = (currentTime - lastTime) / 120;
   lastTime = currentTime;
-  //Serial.println(elapsedTime);
 }
 
 // Отрисовка циферблата
 void drawClock() {
   for (i = 0; i < 60; i++) {
-    for (j = 0; j < 8; j++) { // перебираем элементы массива                                                      //(первые три лампы, т.к. они только они меняются на циферблате)
+    if(i == secIndex || i == minIndex){
+      for (j = 7; j > 2; j--) { // перебираем элементы массива                
+        digitalWrite(pins[j], minSecArrow[j]); // зажигаем или гасим светодиод в соответствии с элементом массива
+      }     
+    }
+    else if(i == hourIndex){
+      for (j = 7; j > 3; j--) { // перебираем элементы массива                                                    
+        digitalWrite(pins[j], hourArrow[j]); // зажигаем или гасим светодиод в соответствии с элементом массива
+      }           
+    }       
+    for (j = 0; j < 3; j++) { // перебираем элементы массива                                                   
       digitalWrite(pins[j], ledMatrix[i][j]); // зажигаем или гасим светодиод в соответствии с элементом массива
     }
     
@@ -152,12 +151,12 @@ void drawClock() {
       }
     }
     
-    delay(pause/3);
+    //delayMicroseconds(pause);
     
     for (j = 0; j < 8; j++) { // перебираем элементы массива                                                      //(первые три лампы, т.к. они только они меняются на циферблате)
       digitalWrite(pins[j], LOW); // зажигаем или гасим светодиод в соответствии с элементом массива
     }
     
-    delay(pause*2/3);
+    //delayMicroseconds(pause);
   }
 }
