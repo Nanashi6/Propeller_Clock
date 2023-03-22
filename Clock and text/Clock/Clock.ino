@@ -124,7 +124,7 @@ void countRevolutions() {
   //revolutions++;  
   //Serial.println("hjjvbhj");
   currentTime = millis();
-  elapsedTime = currentTime - lastTime;
+  elapsedTime += currentTime - lastTime;
   lastTime = currentTime;
   //Serial.println(elapsedTime);
 }
@@ -136,30 +136,20 @@ void drawClock() {
       digitalWrite(pins[j], ledMatrix[i][j]); // зажигаем или гасим светодиод в соответствии с элементом массива
     }
     
-    if (i == secIndex) {
-      for(j = 7; j > 0; j--) {
-        digitalWrite(pins[j], hourArrow[j]);
-      }      
-    }
-    else if (i == minIndex) {
-      for(j = 7; j > 1; j--) {
-        digitalWrite(pins[j], hourArrow[j]);
-      }      
-    }
-    else if (i == hourIndex) {
-      for(j = 7; j > 3; j--) {
-        digitalWrite(pins[j], hourArrow[j]);
-      }      
-    }
-    
-    secIndex++;
-    if(secIndex == 60) {
-      secIndex = 0;
-      minIndex++;     
-    }    
-    if(minIndex == 60) {
-      minIndex = 0;
-      hourIndex++;
+    if (elapsedTime > 1000){
+      elapsedTime = 0;
+      secIndex++;
+      if(secIndex == 60){
+        secIndex = 0;
+        minIndex++;
+        if(minIndex == 60){
+          minIndex = 0;
+          hourIndex+=5;
+          if(hourIndex == 60){
+            hourIndex = 0;                                        
+          }                
+        }
+      }
     }
     
     delay(pause/3);
