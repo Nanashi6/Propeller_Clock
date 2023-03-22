@@ -1,5 +1,5 @@
-const int pins[] = {2,3,4,5,6,7,8,9}; // Пины светодиодных сегментов
-int hallPin = A0;                     // Пин для считывания значения датчика Холла
+const int pins[] = {3,4,5,6,7,8,9,10}; // Пины светодиодных сегментов
+int hallPin = 2;                     // Пин для считывания значения датчика Холла
 int hallVal = HIGH;                   // Исходное значение считывания датчика Холла
 
 int i, j;
@@ -91,7 +91,9 @@ void setup()
   }
 
   pinMode(hallPin, INPUT);
-  attachInterrupt(digitalPinToInterrupt(hallPin), countRevolutions, RISING); // Настраиваем прерывание для подсчета оборотов
+
+//FALLING - регистрация изменения сигнала от HIGH к LOW    
+  attachInterrupt(digitalPinToInterrupt(hallPin), countRevolutions, FALLING); // Настраиваем прерывание для подсчета оборотов
 
   Serial.begin(9600);
 }
