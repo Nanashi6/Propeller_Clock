@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoUI", "ArduinoUI.csproj", "{9D848404-C239-48E4-A5F7-927DF52EB1AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoBluethooth", "..\BluethoothConnector\ArduinoBluethooth.csproj", "{FB943517-9809-4434-96A3-A45DEE3ACFB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9D848404-C239-48E4-A5F7-927DF52EB1AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D848404-C239-48E4-A5F7-927DF52EB1AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D848404-C239-48E4-A5F7-927DF52EB1AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB943517-9809-4434-96A3-A45DEE3ACFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB943517-9809-4434-96A3-A45DEE3ACFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB943517-9809-4434-96A3-A45DEE3ACFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB943517-9809-4434-96A3-A45DEE3ACFB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
