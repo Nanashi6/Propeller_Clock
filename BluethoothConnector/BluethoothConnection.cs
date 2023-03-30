@@ -18,7 +18,7 @@ namespace ArduinoBluethooth
         {
             _portName = portName;
         }
-        /*
+        
         public static List<string> Search()
         {
             var ports = SerialPort.GetPortNames();
@@ -45,7 +45,7 @@ namespace ArduinoBluethooth
 
             return result;
         }
-        */
+        
         public bool Connect()
         {
             var ports = SerialPort.GetPortNames();
