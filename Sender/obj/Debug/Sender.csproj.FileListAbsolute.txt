@@ -1,0 +1,6 @@
+E:\Универ\2 Курс\!Sender\Sender\bin\Debug\Sender.dll
+E:\Универ\2 Курс\!Sender\Sender\bin\Debug\Sender.pdb
+E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.csproj.AssemblyReference.cache
+E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.csproj.CoreCompileInputs.cache
+E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.dll
+E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.pdb
