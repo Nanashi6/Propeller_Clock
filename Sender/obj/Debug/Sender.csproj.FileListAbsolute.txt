@@ -4,3 +4,6 @@ E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.csproj.AssemblyRefere
 E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.csproj.CoreCompileInputs.cache
 E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.dll
 E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.pdb
+E:\Универ\2 Курс\!Sender\Sender\bin\Debug\InTheHand.Net.Personal.dll
+E:\Универ\2 Курс\!Sender\Sender\bin\Debug\InTheHand.Net.Personal.xml
+E:\Универ\2 Курс\!Sender\Sender\obj\Debug\Sender.csproj.CopyComplete
