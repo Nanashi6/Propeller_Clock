@@ -45,7 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BluetoothContext.cs" />
+    <Compile Include="BluetoothTerminal.cs" />
+    <Compile Include="ClockMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextMode.cs" />
   </ItemGroup>

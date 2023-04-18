@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sender", "Sender.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\ConsoleApp1\ConsoleApp1.csproj", "{B2AC3B1D-747B-42A2-8CE9-F90CACCE6AE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "..\WindowsFormsApp1\WindowsFormsApp1.csproj", "{2F632156-AB1C-48F6-BA87-F736F0015A2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenderUI", "..\SenderUI\SenderUI.csproj", "{02D4D942-0E56-4467-B479-3D1339D991B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{B2AC3B1D-747B-42A2-8CE9-F90CACCE6AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2AC3B1D-747B-42A2-8CE9-F90CACCE6AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2AC3B1D-747B-42A2-8CE9-F90CACCE6AE3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F632156-AB1C-48F6-BA87-F736F0015A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F632156-AB1C-48F6-BA87-F736F0015A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F632156-AB1C-48F6-BA87-F736F0015A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F632156-AB1C-48F6-BA87-F736F0015A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D4D942-0E56-4467-B479-3D1339D991B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D4D942-0E56-4467-B479-3D1339D991B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D4D942-0E56-4467-B479-3D1339D991B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D4D942-0E56-4467-B479-3D1339D991B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

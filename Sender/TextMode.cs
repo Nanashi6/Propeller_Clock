@@ -106,17 +106,7 @@ namespace Sender
         private int _charWidth = 5;
         private int _charHeight = 8;
 
-        public TextMode(/*int charWidth, int charHeigth*/)
-        {
-            /*_charWidth = charWidth;
-            _charHeight = charHeigth;*/
-        }
-
-        //Метод для преобразования текста в матричное изображение   +
-        //Метод для возврата массива со значениями, либо сразу метод для отправки этого массива на ардуино
-
-        //Массив можно отрисовывать на экране для проверки (или в консоли)
-
+        public TextMode() { }
         /*private int[,] PrintLetterBoven(char ch)
         {
             int[,] matrix = new int[_charWidth, _charHeight];
@@ -140,8 +130,12 @@ namespace Sender
             return matrix;
         }*/
 
-        private int[,] PrintLetter(char ch)
-        {
+        /// <summary>
+        /// Метод для преобразования текста в матричное изображение
+        /// </summary>
+        /// <param name="ch"></param>
+        /// <returns></returns>
+        private int[,] PrintLetter(char ch){
             int[,] matrix = new int[_charWidth, _charHeight];
 
             int charIndex = ch;
@@ -162,6 +156,11 @@ namespace Sender
             return matrix;
         }
 
+        /// <summary>
+        /// Преобразование текста в матричный вид
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="result"></param>
         public void TextToMatrix(string text, out int[,] result)
         {
             int[,] matrix;
