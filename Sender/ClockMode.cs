@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sender
 {
-    internal class ClockMode
+    public class ClockMode
     {
         private byte[,] _data = {
                                 {0b11100000, 0b00000000 }, //12       
@@ -72,6 +72,13 @@ namespace Sender
                                };
         public ClockMode() { }
 
-
+        /// <summary>
+        /// Метод возвращает массив, готовый к отрисовке
+        /// </summary>
+        /// <returns></returns>
+        public byte[,] GetDataArray()
+        {
+            return _data;
+        }
     }
 }

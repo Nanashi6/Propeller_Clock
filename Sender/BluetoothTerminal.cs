@@ -13,7 +13,7 @@ namespace Sender
         private BluetoothClient _client;
         private BluetoothDeviceInfo _device;
         private Stream _stream;
-        private Thread _receiveThread;
+        /*private Thread _receiveThread;*/
 
         public BluetoothTerminal(string macAddress)
         {
@@ -25,9 +25,9 @@ namespace Sender
             // Получаем поток для обмена данными
             _stream = _client.GetStream();
 
-            // Запускаем поток для приема сообщений
+/*            // Запускаем поток для приема сообщений
             _receiveThread = new Thread(ReceiveThread);
-            _receiveThread.Start();
+            _receiveThread.Start();*/
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Sender
                 string message = Encoding.ASCII.GetString(buffer, 0, length);
 
                 // Обработка полученного сообщения
-                Console.WriteLine(message);
+                //Console.WriteLine(message);
             }
         }
 
@@ -120,7 +120,7 @@ namespace Sender
         /// </summary>
         public void Dispose()
         {
-            _receiveThread.Abort();
+            //_receiveThread.Abort();
             _stream.Dispose();
             _client.Dispose();
         }

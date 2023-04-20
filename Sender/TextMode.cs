@@ -103,6 +103,7 @@ namespace Sender
          {0x41,0x41,0x36,0x08,0x00, 0x00},   // } 0x7d 125
          {0x04,0x02,0x04,0x08,0x04, 0x00},   // ~ 0x7e 126
         };
+        private byte[,] _data;
         private int _charWidth = 5;
         private int _charHeight = 8;
 
@@ -135,8 +136,8 @@ namespace Sender
         /// </summary>
         /// <param name="ch"></param>
         /// <returns></returns>
-        private int[,] PrintLetter(char ch){
-            int[,] matrix = new int[_charWidth, _charHeight];
+        private byte[,] PrintLetter(char ch){
+            byte[,] matrix = new byte[_charWidth, 2/*_charHeight*/];
 
             int charIndex = ch;
             if (charIndex < 32 || charIndex > 126)
@@ -146,11 +147,8 @@ namespace Sender
             charIndex -= 32;
             for (int i = 0; i < _charWidth; i++)
             {
-                byte b = _font[charIndex, i];
-                for (int j = 0; j < _charHeight; j++)
-                {
-                    matrix[i, j] = Convert.ToInt32(new BitArray(new byte[] { b })[7 - j]);
-                }
+                matrix[i, 0] |= (byte)((_font[charIndex, i] >> 3) & 0b00011110);
+                matrix[i, 1] |= (byte)((_font[charIndex, i] << 4) & 0b11110000);
             }
 
             return matrix;
@@ -161,10 +159,10 @@ namespace Sender
         /// </summary>
         /// <param name="text"></param>
         /// <param name="result"></param>
-        public void TextToMatrix(string text, out int[,] result)
+        public void TextToMatrix(string text, out byte[,] result)
         {
-            int[,] matrix;
-            result = new int[60, 14];
+            byte[,] matrix;
+            result = new byte[60, 2];
 
             int x = 0;
             foreach (char ch in text)
@@ -180,6 +178,41 @@ namespace Sender
                 }
                 x += _charWidth;
             }
+        }
+
+        /// <summary>
+        /// Преобразование текста в матричный вид
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="result"></param>
+        public void TextToMatrix(string text)
+        {
+            byte[,] matrix;
+            _data = new byte[60, 2];
+
+            int x = 0;
+            foreach (char ch in text)
+            {
+                matrix = PrintLetter(ch);
+
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        _data[x + i, j] = matrix[i, j];
+                    }
+                }
+                x += _charWidth;
+            }
+        }
+
+        /// <summary>
+        /// Метод возвращает массив, готовый к отрисовке
+        /// </summary>
+        /// <returns></returns>
+        public byte[,] GetDataArray()
+        {
+            return _data;
         }
     }
 }
