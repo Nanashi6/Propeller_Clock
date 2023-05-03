@@ -1,0 +1,6 @@
+E:\Универ\2 Курс\!Sender\Mods\bin\Debug\Mods.dll
+E:\Универ\2 Курс\!Sender\Mods\bin\Debug\Mods.pdb
+E:\Универ\2 Курс\!Sender\Mods\obj\Debug\Mods.csproj.AssemblyReference.cache
+E:\Универ\2 Курс\!Sender\Mods\obj\Debug\Mods.csproj.CoreCompileInputs.cache
+E:\Универ\2 Курс\!Sender\Mods\obj\Debug\Mods.dll
+E:\Универ\2 Курс\!Sender\Mods\obj\Debug\Mods.pdb
