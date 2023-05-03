@@ -3,22 +3,20 @@ SoftwareSerial btSerial(A5, A6); // RX, TX пины для модуля Bluetoot
 
 const int pins[] = {3,4,5,6,7,8,9,10,11,12,A3,A2,A1,A0};  // Пины светодиодных сегментов
 int hallPin = 2;                                          // Пин для считывания значения датчика Холла
-//int hallVal = HIGH;                                       // Исходное значение считывания датчика Холла
 
 int i, j;
 
 unsigned char minSecArrow[] = {0x1E,0xFE}; //Макет минутной и секундной стрелок
-int secIndex = 2;
-int minIndex = 45;
+int secIndex = 2;  
+int minIndex = 45; 
 
 unsigned char hourArrow[] = {0x00,0x3E}; //Макет часовой стрелки
 int hourIndex = 0;
 
-//volatile int revolutions = 0; // Количество оборотов
 unsigned long lastTime = 0;     // Время последнего изменения положения стрелок
 unsigned long currentTime = 0;  // Текущее время
 unsigned long elapsedTime = 0;  // Время, прошедшее с последнего изменения положения стрелок
-int pause = 520;                // Задержка
+long double pause = 1000;      // Задержка
 
 unsigned char ledMatrix[120] =
   {
@@ -116,23 +114,19 @@ void loop()
     else if(index == 1) {
       memcpy(ledMatrix + 60, buffer + 0, 60);
       index = 0;
-    }
-    btSerial.readBytes((byte*)buffer, 60);
-  }
-    /*          // Вывод значений массива в монитор порта
-    for(int i = 0; i < 60; i++) 
-    {
-      Serial.print(i);
-      Serial.print('\t');
-      Serial.print(index);
-      Serial.print('\t');
-      for(int j = 0; j < 2; j++) 
-      {
-        Serial.print(ledMatrix[i][j]);
-        Serial.print("\t");
+      if(bitRead(ledMatrix[0], 0) == 1){
+        isClock = true;
+        for(i = 0; i < 8; i++){
+          bitWrite(hourIndex, i, bitRead(ledMatrix[(i + 1) * 2], 0));
+          bitWrite(minIndex, i, bitRead(ledMatrix[(i + 9) * 2], 0));
+          bitWrite(secIndex, i, bitRead(ledMatrix[(i + 17) * 2], 0));
+        }
       }
-      Serial.println(hourIndex + ':' + minIndex + ':' + secIndex);
-    }*/
+      else {
+        isClock = false;
+      }
+    }
+  }
   while(digitalRead(hallPin) != 0);
   draw();
 }
@@ -149,11 +143,12 @@ void countRevolutions() {
   draw();
 }
 
-// Отрисовка циферблата
+// Отрисовка дисплея
 void draw() {
   if(isClock){
     currentTime = millis();
     elapsedTime += currentTime - lastTime;
+    //pause = (currentTime - lastTime) / 500;
     lastTime = currentTime;
     if (elapsedTime > 1000){
       elapsedTime = 0;
@@ -192,12 +187,12 @@ void draw() {
       } 
     }      
     
-    delayMicroseconds(pause); //delayMicroseconds
+    delayMicroseconds(100);
     
     for (j = 0; j < 14; j++) { // перебираем элементы массива                                                      
-      digitalWrite(pins[j], LOW); // зажигаем или гасим светодиод в соответствии с элементом массива
+      digitalWrite(pins[j], LOW); 
     }
     
-    delayMicroseconds(pause); //delayMicroseconds
+    delayMicroseconds(pause);
   }
 }
